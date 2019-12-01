@@ -4,7 +4,7 @@ import os
 import time
 
 correct_password = "$@nt@25"
-correct_deactivate = "319171225"
+correct_deactivate = "1891225"
 
 os.system("clear")
 
@@ -18,9 +18,9 @@ def print_menu():
     print("5. Log out")
 
 def sleepy_dots(num_seconds):
-    for count in range(num_seconds):
+    for count in range(num_seconds*2):
         print(".", end='', flush=True)
-        time.sleep(1)
+        time.sleep(0.5)
 
 email4 = """
 From: Emily
@@ -85,6 +85,8 @@ Peace
 Love,
  Your Christmas Present
 
+P.S.  If you lose your key to the black toolbox again - I taped the spare key under the t&C^%X$##$!X*......  <EMAIL TRANSMISSION INTERRUPTED>
+
 """
 
 email5 = """
@@ -110,8 +112,8 @@ Dear Santa,
 
 I sent you two puzzles.
 One is a picture of an albino elephant drinking milk in a snowstorm,
-and the other is just blank.
-The blank one is missing a few pieces and has green stars on the back.
+and the other is a picture of a Christmas Tree with a star and no ornaments. It has a blue sky.
+The one with the Christmas Tree is missing a few pieces and has green stars on the back.
 Sorry about it's missing pieces.
 
 - Frosty The Snowman 
@@ -177,7 +179,7 @@ def print_naughtylist():
 
 def check_disable():
     os.system("clear")
-    print("Please Enter the code to disable self destruct")
+    print("Please enter the code to disable self destruct.  (Press <Enter> to go back to the main menu.)")
     disable = input("--> ")
     number_correct = 0
     for index in range(min(len(correct_deactivate), len(disable))):
@@ -187,10 +189,11 @@ def check_disable():
         print(" YOU WON! YOU SAVED CHRISTMAS! CONGRATS!")
         time.sleep(60*10)
     else:
-        print(f" Sorry but your answer is WRONG!")
-        print(f" You got {number_correct} out of {len(correct_deactivate)} digits correct.")
-        print("  Please try again in 30 seconds.")
-        sleepy_dots(30)
+        if (disable != ""):
+            print(f" Sorry but your answer is WRONG!")
+            print(f" You got {number_correct} out of {len(correct_deactivate)} digits correct.")
+            print("  Please wait 20 seconds, and then you will be returned to the main menu.")
+            sleepy_dots(20)
         
 
 while(True):
@@ -203,8 +206,8 @@ while(True):
         if password_entered == correct_password:
             print("YOU GOT IT!")
         else:
-            print("Sorry, but your answer is WRONG! Please try again in 30 seconds.")
-            sleepy_dots(30)
+            print("Sorry, but your password is incorrect! Please try again in 20 seconds.")
+            sleepy_dots(20)
     menu_choice=""
     while(menu_choice != "5"):
         print_menu()
