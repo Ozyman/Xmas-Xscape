@@ -167,9 +167,9 @@ naughtylist = """
 
    NAUGHTY LIST
 ----------------    
-  Enni
-  Evens 
-  Noe
+  Vief
+  Furo   
+  Neo
 """
 
 def print_naughtylist():
